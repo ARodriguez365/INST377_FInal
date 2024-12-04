@@ -1,0 +1,10 @@
+.main_nav {
+    background-color: lightsalmon;
+    font-weight: bold;
+}
+
+.main_nav:hover {
+    background-color: black;
+    color:white;
+    font-weight: bolder;
+}
