@@ -1,10 +1,51 @@
-.main_nav {
-    background-color: lightsalmon;
-    font-weight: bold;
+/* Color Palette:
+#4E070C - Brown
+#D22701 - red ish
+#FF670E - orange
+#FDE4CE - Tan
+#AAD15F - light green
+*/
+
+body {
+    background-color: #FDE4CE;
 }
 
-.main_nav:hover {
-    background-color: black;
+h1 {
+    font-family:"Dancing Script", cursive;
+    font-weight:bolder;
+    font-size: 45px;
+}
+
+#main-nav {
+    background-color: #FF670E;
+}
+
+#main-nav ul {
+    list-style-type: none;
+    display:flex;
+    margin:0px;
+    padding:0px;
+    align-items: center;
+    justify-content: center;
+}
+
+#main-nav button {
+    padding:20px;
+    font-weight:bold;
+    text-decoration: none;
+    background-color: #FF670E;
+    border:none;
+}
+
+#main-nav button:hover {
+    background-color: #4E070C;
     color:white;
-    font-weight: bolder;
+    font-weight:bold;
+    cursor: pointer;
+    transform: scale(1.2);
+    text-decoration: underline;
+}
+
+p {
+    text-align: center;
 }
