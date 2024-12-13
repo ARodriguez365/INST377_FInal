@@ -3,7 +3,8 @@
         <title>Food Finder</title>
         <link rel="stylesheet" href="Final_Formatting_INST377.css">
         <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
-    <body>
+        <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+        <body>
         <h1>Food Finder</h1>
         <nav id="main-nav">
             <ul>
@@ -15,6 +16,56 @@
         <p> We offer various dervices for finding recipies within your dietary restrictions
             as well as reccommending recipies that are popular right now
         </p>
+        <form name="generateUserID" method="get" onsubmit="addCustomer(event)">
+            <P>
+                Use the form below to generate a unique user ID that you can then
+                enter across pages to automatically populate your dietary restrictions.
+            </P>
+            <label for="firstName"> First Name: * </label>
+            <input type="text" id="firstName" name="firstName" required>
+
+            <label for="lastName"> Last Name: * </label>
+            <input type="text" id="lastName" name="lastName" required>
+
+            <p> Dietary Preferences: </p>
+            
+            <div id="checkbox_list"></div>
+            
+            
+            <div id="idDisplay">
+                <p>Hello! Your unique user ID is <span id='generatedID'></span></P>
+            </div>
+            
+            <button type="submit" id="generateID"> Generate ID! </button>
+        </form>
+
+        <form name="findID">
+            <h2> Find User ID </h2>
+            <p> Use this form to find your user id after searching your name if needed</p>
+            <label for="findfirstName"> First Name: * </label>
+            <input type="text" id="findfirstName" name="findfirstName" required>
+
+            <label for="findlastName"> Last Name: * </label>
+            <input type="text" id="findlastName" name="findlastName" required>
+                        
+            <div id="findidDisplay">
+                <p>Hello! Your unique user ID is <span id='foundID'></span></P>
+            </div>
+            
+            <button type="submit" id="findIDbutton"> Find ID! </button>
+        </form>
+
+        <form name="delID">
+            <h2> Delete User</h2>
+            <p> Use this form to delete your user profile if desired</p>
+            <label for="delfirstName"> First Name: * </label>
+            <input type="text" id="delfirstName" name="delfirstName" required>
+
+            <label for="dellastName"> Last Name: * </label>
+            <input type="text" id="dellastName" name="dellastName" required>
+            
+            <button type="submit" id="delbutton"> Delete! </button>
+        </form>
         <script src="INST377_Final.js"></script>
     </body>
 </html>
