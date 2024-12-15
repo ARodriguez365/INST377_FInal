@@ -166,3 +166,25 @@ form[name="delID"] button#delbutton {
     font-size: 1rem;
     color: #4E070C;
 }
+
+#about-section {
+    margin: 20px auto;
+    max-width: 800px;
+    line-height: 1.6;
+}
+
+#about-section h2 {
+    color: #D22701;
+    margin-bottom: 10px;
+}
+
+#about-section p, #about-section ul {
+    color: #4E070C;
+    font-size: 1.1rem;
+}
+
+#about-section ul {
+    margin-top: 10px;
+    list-style-type: disc;
+    padding-left: 20px;
+}
