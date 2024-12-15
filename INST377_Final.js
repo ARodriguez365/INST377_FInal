@@ -5,6 +5,42 @@ const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS
 const supabase = createClient(supabaseUrl, supabaseKey)
 
 */
+async function fetchPopularRecipes() {
+    const container = document.getElementById('recipes-container');
+    container.innerHTML = '<p>Loading popular recipes...</p>';
+    
+    try {
+        // Fetch popular recipes from the OpenFoodFacts API
+        const response = await fetch('https://world.openfoodfacts.org/cgi/search.pl?search_terms=popular&json=true&page_size=10');
+        const data = await response.json();
+
+        if (data.products) {
+            const recipesHTML = data.products.map(product => {
+                const name = product.product_name || "No Name Available";
+                const imageUrl = product.image_url || "https://via.placeholder.com/150";
+                const ingredients = product.ingredients_text || "No Ingredients Available";
+                
+                return `
+                    <div class="recipe-card">
+                        <img src="${imageUrl}" alt="${name}">
+                        <h3>${name}</h3>
+                        <p><strong>Ingredients:</strong> ${ingredients}</p>
+                    </div>
+                `;
+            }).join('');
+            
+            container.innerHTML = recipesHTML;
+        } else {
+            container.innerHTML = '<p>No popular recipes found. Try again later.</p>';
+        }
+    } catch (error) {
+        console.error('Error fetching popular recipes:', error);
+        container.innerHTML = '<p>Failed to load recipes. Please try again later.</p>';
+    }
+}
+
+// Run the function when the page loads
+document.addEventListener("DOMContentLoaded", fetchPopularRecipes);
 
 const supabaseUrl = 'https://rrwizhzlnsheqbkmpqxu.supabase.co'
 const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJyd2l6aHpsbnNoZXFia21wcXh1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzM5NDU3MzQsImV4cCI6MjA0OTUyMTczNH0.lKP9EWRP_83lfZ21mTeTfThjVjBeP279coXNEt6JWSo'
