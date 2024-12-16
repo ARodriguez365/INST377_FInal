@@ -1,7 +1,7 @@
 # INST377_Final
 INST377 Web Design Final using HTML and JavaScript
 
-Title: Personalized Recipe Finder
+Title: Personalized Recipe and Product Finder
 
 Description:
 
